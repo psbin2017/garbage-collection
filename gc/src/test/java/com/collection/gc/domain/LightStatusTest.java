@@ -7,7 +7,7 @@ import org.springframework.util.StopWatch;
 public class LightStatusTest {
     
     /**
-     * 참고한 내용 https://pjh3749.tistory.com/279
+     * https://woowacourse.github.io/javable/2020-04-21/enum_search
      */
     @DisplayName("enum 해시맵 속도 테스트")
     @Test
