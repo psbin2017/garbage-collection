@@ -1,4 +1,6 @@
 package com.collection.gc.sample.interfaces;
+// 단순 구현 참고
+// import java.util.AbstractMap.SimpleEntry;
 
 public interface FishBreadMachine {
     void start();
