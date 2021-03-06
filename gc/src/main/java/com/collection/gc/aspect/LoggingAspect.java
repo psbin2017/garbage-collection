@@ -65,7 +65,7 @@ public class LoggingAspect {
     public void afterThrowingUseAnnotation(JoinPoint joinPoint, Throwable ex) {
         log.info("---------- @AfterThrowing afterThrowingUseAnnotation start ----------");
         log.info(" ex.getMessage : {}", ex.getMessage() );
-        log.info(" ex.getStackTrace : {}", ex.getStackTrace() );
+        // log.info(" ex.getStackTrace : {}", ex.getStackTrace() );
         log.info("---------- @AfterThrowing afterThrowingUseAnnotation end ----------");
     }
 

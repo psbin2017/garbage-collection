@@ -1,6 +1,6 @@
 package com.collection.gc.sample.enums.operation;
 
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.Collection;

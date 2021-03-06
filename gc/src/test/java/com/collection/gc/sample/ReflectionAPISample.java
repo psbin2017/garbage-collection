@@ -1,15 +1,14 @@
 package com.collection.gc.sample;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * https://woowacourse.github.io/javable/2020-07-16/reflection-api
@@ -51,7 +50,7 @@ public class ReflectionAPISample {
         } catch (Exception e) {
             System.out.println( "Exception : " +  e.getMessage() );
         }
-        int expected = 1;
+        int expected = 0;
         assertEquals(expected, result);
     }
 
