@@ -25,25 +25,21 @@ class SingerSongWriterImpl implements SingerSongWriter {
 
     @Override
     public AudioClip sing(Song song) {
-        // TODO Auto-generated method stub
         return null;
     }
 
     @Override
     public Song compose(int chartPosition) {
-        // TODO Auto-generated method stub
         return null;
     }
 
     @Override
     public AudioClip strum() {
-        // TODO Auto-generated method stub
         return null;
     }
 
     @Override
     public void actSensitive() {
-        // TODO Auto-generated method stub
 
     }
 
