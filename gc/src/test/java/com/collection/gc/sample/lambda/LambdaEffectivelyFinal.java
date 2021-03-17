@@ -10,7 +10,7 @@ import java.util.stream.IntStream;
  * @link https://vagabond95.me/posts/lambda-with-final/
  * @link https://syundev.tistory.com/246
  */
-public class LambdaFinal {
+public class LambdaEffectivelyFinal {
 
     private int instanceNumber = 1;
 
