@@ -1,13 +1,12 @@
 package com.collection.gc.sample.lombok;
 
-import static org.junit.jupiter.api.Assumptions.assumeTrue;
-
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class EqualsHashCodeSample {
 
@@ -16,7 +15,7 @@ public class EqualsHashCodeSample {
     public void lombokEqualsAndHashCode_EqualsCoffee_True() {
         Coffee coffeeA = new Coffee(100, 50);
         Coffee coffeeB = new Coffee(100, 50);
-        assumeTrue( coffeeA.equals( coffeeB )  );
+        assertTrue( coffeeA.equals( coffeeB )  );
     }
 
     @DisplayName("롬복 : hashCode 일반 객체")
@@ -24,7 +23,7 @@ public class EqualsHashCodeSample {
     public void lombokEqualsAndHashCode_HashCodeCoffee_True() {
         Coffee coffeeA = new Coffee(70, 10);
         Coffee coffeeB = new Coffee(70, 10);
-        assumeTrue( coffeeA.hashCode() == coffeeB.hashCode()  );
+        assertTrue( coffeeA.hashCode() == coffeeB.hashCode()  );
     }
 
     @DisplayName("롬복 : equals 상속 객체 + CallSuper true ")
@@ -32,7 +31,7 @@ public class EqualsHashCodeSample {
     public void lombokCallSuperTrue_EqualsCafeMocha_True() {
         CafeMocha coffeeA = new CafeMocha(160, 20, "카카오100");
         CafeMocha coffeeB = new CafeMocha(160, 20, "카카오100");
-        assumeTrue( coffeeA.equals( coffeeB )  );
+        assertTrue( coffeeA.equals( coffeeB )  );
     }
 
     @DisplayName("롬복 : hashCode 상속 객체 + CallSuper true ")
@@ -40,7 +39,7 @@ public class EqualsHashCodeSample {
     public void lombokCallSuperTrue_HashCodeCafeMocha_True() {
         CafeMocha coffeeA = new CafeMocha(310, 45, "가나");
         CafeMocha coffeeB = new CafeMocha(310, 45, "가나");
-        assumeTrue( coffeeA.hashCode() == coffeeB.hashCode()  );
+        assertTrue( coffeeA.hashCode() == coffeeB.hashCode()  );
     }
 
     @DisplayName("롬복 : equals 상속 객체 + CallSuper false ")
@@ -48,7 +47,7 @@ public class EqualsHashCodeSample {
     public void lombokCallSuperFalse_EqualsCafeLatte_True() {
         CafeLatte coffeeA = new CafeLatte(250, 30, "농협 우유");
         CafeLatte coffeeB = new CafeLatte(280, 50, "농협 우유");
-        assumeTrue( coffeeA.equals( coffeeB )  );
+        assertTrue( coffeeA.equals( coffeeB )  );
     }
 
     @DisplayName("롬복 : hashCode 상속 객체 + CallSuper false ")
@@ -56,7 +55,7 @@ public class EqualsHashCodeSample {
     public void lombokCallSuperFalse_HashCodeCafeLatte_True() {
         CafeLatte coffeeA = new CafeLatte(250, 30, "건국 우유");
         CafeLatte coffeeB = new CafeLatte(280, 50, "건국 우유");
-        assumeTrue( coffeeA.hashCode() == coffeeB.hashCode()  );
+        assertTrue( coffeeA.hashCode() == coffeeB.hashCode()  );
     }
 
 }
