@@ -1,10 +1,14 @@
 package com.collection.gc.aspect.web;
 
 import com.collection.gc.aspect.service.*;
+import com.collection.gc.aspect.service.impl.AfterReturningServiceImpl;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@Slf4j
 @RequiredArgsConstructor
 @RestController
 public class AspectController {
@@ -57,6 +61,29 @@ public class AspectController {
     public void simpleAround() {
         aroundService.around();
         aroundService.around("hello", 1);
+    }
+
+    @GetMapping("/aspect/proxy")
+    public void proxy() {
+        ProxyFactory proxyFactory = new ProxyFactory();
+        proxyFactory.setInterfaces(AfterReturningService.class);
+        proxyFactory.setTarget(new AfterReturningServiceImpl());
+        final AfterReturningService jdkDynamicProxy = (AfterReturningService) proxyFactory.getProxy();
+        /*
+         * JDK 동적 프록시 proxy.getClass() : class com.sun.proxy.$Proxy78
+         * 인터페이스가 있어서 JDK 동적 프록시로 주입되어 생성되었다.
+         */
+        log.info( "proxy.getClass() : " + jdkDynamicProxy.getClass());
+
+
+        ProxyFactory proxyFactory2 = new ProxyFactory();
+        proxyFactory2.setTarget(new AroundService());
+        final AroundService cglibProxy = (AroundService) proxyFactory2.getProxy();
+        /*
+         * CGLIB 프록시 proxy.getClass() : class com.collection.gc.aspect.service.AroundService$$EnhancerBySpringCGLIB$$306616bc
+         * 인터페이스가 없어서 CGLIB 프록시로 주입되어 생성되었다.
+         */
+        log.info( "proxy.getClass() : " + cglibProxy.getClass());
     }
 
 }
