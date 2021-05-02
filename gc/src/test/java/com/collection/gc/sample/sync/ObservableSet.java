@@ -75,8 +75,8 @@ public class ObservableSet<E> extends FowardingSet<E> {
             set2.add(i);
         }
     }
-}
 
-@FunctionalInterface interface SetObserver<E> {
-    void added(ObservableSet<E> set, E element);
+    @FunctionalInterface interface SetObserver<E> {
+        void added(ObservableSet<E> set, E element);
+    }
 }
